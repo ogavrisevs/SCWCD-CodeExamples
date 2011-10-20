@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.Enumeration;
 
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,12 +19,22 @@ public class ServInformation extends HttpServlet {
 		
 		ServletConfig sc = getServletConfig();
 		Enumeration eu = sc.getInitParameterNames();
+		pw.println("<br> InitParameterNames : ");
 		while (eu.hasMoreElements()){
 			String key = (String) eu.nextElement();
 			pw.println("<br> key : "+ key +"val "+  sc.getInitParameter(key));
 		}
 		
-		pw.println("<br> ServletInfo : "+ getServletInfo());
+		ServletContext scc = getServletContext();
+		Enumeration<String> euu = scc.getAttributeNames();
+		pw.println("<br> ServletContext : ");		
+		while (euu.hasMoreElements()){
+			Object obj = euu.nextElement();
+			if (obj instanceof String){ 
+				String key = (String) euu.nextElement();
+				pw.println("<br> key : "+ key +"val "+  scc.getAttribute(key));
+			}
+		}
 		
 	}
 
