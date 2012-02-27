@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+    <display-name>SCWCD-CodeExamples</display-name>
+<!--
+
+    <welcome-file-list>
+        <welcome-file>main</welcome-file>
+    </welcome-file-list>
+-->
+
+    <servlet>
+        <servlet-name>indexFile</servlet-name>
+        <jsp-file>/index.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>indexFile</servlet-name>
+        <url-pattern>/main</url-pattern>
+    </servlet-mapping>
+
+    <!--======================================================== -->
+
+    <servlet>
+        <servlet-name>oneParam</servlet-name>
+        <servlet-class>norma.packg.oneparam.OneParam</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>oneParam</servlet-name>
+        <url-pattern>/oneParam.DoMe</url-pattern>
+    </servlet-mapping>
+    <!--======================================================== -->
+
+    <servlet>
+        <servlet-name>multipleParams</servlet-name>
+        <servlet-class>norma.packg.multipleparams.MultipleParams</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>multipleParams</servlet-name>
+        <url-pattern>/multipleParams.DoPost</url-pattern>
+    </servlet-mapping>
+
+    <!--======================================================== -->
+    <servlet>
+        <description></description>
+        <display-name>redirect</display-name>
+        <servlet-name>redirect</servlet-name>
+        <servlet-class>norma.packg.redirects.redirect</servlet-class>
+    </servlet>
+    <servlet>
+        <description></description>
+        <display-name>forward</display-name>
+        <servlet-name>forward</servlet-name>
+        <servlet-class>norma.packg.redirects.forward</servlet-class>
+        <init-param>
+            <description></description>
+            <param-name>param1</param-name>
+            <param-value>val1</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>ReturnPicture</display-name>
+    	<servlet-name>ReturnPicture</servlet-name>
+    	<servlet-class>norma.packg.retPicture.ReturnPicture</servlet-class>
+    	<init-param>
+    		<description>
+    		</description>
+    		<param-name>par1</param-name>
+    		<param-value>val1</param-value>
+    	</init-param>
+    </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>ServInformation</display-name>
+    	<servlet-name>ServInformation</servlet-name>
+    	<servlet-class>norma.packg.servInf.ServInformation</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>redirect</servlet-name>
+        <url-pattern>/redirect</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>forward</servlet-name>
+        <url-pattern>/forward</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>ReturnPicture</servlet-name>
+    	<url-pattern>/GetPic.DoMe</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>ServInformation</servlet-name>
+    	<url-pattern>/get.Info</url-pattern>
+    </servlet-mapping>
+</web-app>
